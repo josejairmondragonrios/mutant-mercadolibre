@@ -1,0 +1,33 @@
+{
+  "name": "mutantlambda",
+  "version": "0.0.1",
+  "description": "examen mercadolibre - mutantes",
+  "main": "src/index.js",
+  "scripts": {
+    "coverage": "nyc --reporter=text --reporter=lcov npm test",
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
+    "test": "jest",
+    "build": "repack-zip",
+    "index": "node -e \"console.log(require('./src/index').handler({'headers': {}, 'body': {'dna':['ATGCGA','CAGTGC','TTATGT','AGAAGG','CCCCTA','TCACTG'] }},{}));\"",
+    "index2": "node -e \"console.log(require('./src/index').handler({'headers': {}, 'body': {'dna':['TTGC','AAGT','CTAT','CGAA','CCCA','CCAC'] }},{}));\""
+  },
+  "keywords": [
+    "examen",
+    "mercadolibre",
+    "mutantes"
+  ],
+  "bin": {
+    "sonar-scanner": "dist/bin/sonar-scanner"
+  },
+  "author": "Jose Jair Mondragon Rios, jjmondragonrios@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nyc": "^15.1.0",
+    "repack-zip": "^0.2.8",
+    "sonar-scanner": "^3.1.0"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.6"
+  }
+}

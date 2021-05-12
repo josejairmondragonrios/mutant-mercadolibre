@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  mutantes_db:
+    container_name: mutantes_db
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: mutantes_db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12345678
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb/datadir:/data/db
+    networks:
+      - net_database_mutantes
+
+networks:
+  net_database_mutantes:
+    driver: bridge
